@@ -1,0 +1,643 @@
+\let\latexnofiles\nofiles
+\let\nofiles\relax
+\documentclass[margin,line,11pt]{res}
+
+% uses MinionPro font
+%\usepackage{MnSymbol}
+%\usepackage[mathlf,textlf,minionint]{MinionPro}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[american]{babel}
+\usepackage{textcomp}
+\usepackage{csquotes}
+
+\usepackage[urw-garamond]{mathdesign}
+\renewcommand{\rmdefault}{ugm}
+\usepackage[osf]{garamondx}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage{xspace}
+\microtypecontext{spacing=nonfrench}
+
+\usepackage{calc}
+\usepackage{datetime}
+\usepackage[shortlabels]{enumitem}
+%\usepackage[itemindent=-1.5em,listparindent=-1.5em]{etaremune}
+\usepackage{etaremune}
+%\setlist[enumerate]{noitemsep}
+%\setlist[enumerate,1]{leftmargin=*}
+%\newlength{\bibhang}
+%\setlength{\bibhang}{3.5em}
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{0em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{label=\arabic*.,resume,leftmargin={\bibhang+\widthof{[999]}},%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=0pt,partopsep=0pt,
+        topsep=0pt}
+%\let\oldendbibenum\endbibenum
+%\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+
+\newenvironment{bibenum*}
+  {\renewcommand\labelenumi{\theenumi.}%
+   \etaremune[
+     topsep=0pt,
+     itemsep=\bibsep,
+     parsep=0pt,partopsep=0pt,
+     itemindent=-\bibhang,
+     leftmargin={\bibhang+\widthof{[999]}}]}
+  {\endetaremune}
+
+\oddsidemargin -.5in
+\evensidemargin -.5in
+\textwidth=6.0in
+%\itemsep=0in
+%\parsep=0in
+
+%\usepackage{lastpage}
+
+\usepackage{fancyhdr}
+%\setlength{\headheight}{15.2pt}
+\setlength{\headheight}{-15pt}
+\pagestyle{fancyplain}
+ 
+% footer style
+\fancyhf{}
+%\rfoot{\fancyplain{}{Kyle Niemeyer, \thepage\ of \pageref*{LastPage}}}
+\lfoot{\fancyplain{}{\monthname~\the\year}}
+\rfoot{\fancyplain{}{Kyle Niemeyer, \thepage}}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\usepackage[breaklinks=true, linkcolor=blue, urlcolor=blue, colorlinks=true, ocgcolorlinks]{hyperref}
+\usepackage{url}
+\urlstyle{same}
+
+\usepackage{breakurl}
+
+\newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{\nolinkurl{doi:#1}}}
+
+\newenvironment{list1}{
+  \begin{list}{\ding{113}}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.17in}}}{\end{list}}
+\newenvironment{list2}{
+  \begin{list}{$\bullet$}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \stetlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.2in}}}{\end{list}}
+
+\begin{document}
+
+\name{Kyle Evan Niemeyer, Ph.D.}
+
+\address{\href{http://mime.oregonstate.edu}{School of Mechanical, Industrial, \& Manufacturing Engineering}, \href{http://oregonstate.edu}{Oregon State University}}
+\address{320 Rogers Hall, Corvallis, OR 97331-6001 USA}
+\address{+1-541-737-5614 | \href{mailto:Kyle.Niemeyer@oregonstate.edu}{Kyle.Niemeyer@oregonstate.edu}}
+\address{\url{http://kyleniemeyer.com}}
+
+\begin{resume}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Research Interests}}
+Computational modeling of reacting and non-reacting fluid flows, fluid-structure interaction, chemical reaction mechanism reduction methods, GPU computing.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\textsc{Education}}
+\textbf{Case Western Reserve University} \hfill Cleveland, Ohio \\
+\emph{Department of Mechanical and Aerospace Engineering} \hfill 2005--2013 \\
+%vspace*{.05in}
+\begin{list1}
+
+\item[] Ph.D., Mechanical Engineering, August 2013 \\
+Advisor:  Chih-Jen Sung \\
+Dissertation Title: ``\href{http://kyleniemeyer.com/files/Niemeyer_dissertation.pdf}{Reducing the Cost of Chemistry in Reactive-Flow Simulations: Novel} \\ \href{http://kyleniemeyer.com/files/Niemeyer_dissertation.pdf}{Mechanism Reduction Strategies and Acceleration via Graphics Processing Units}'' \\
+GPA: 4.0\slash 4.0 \\
+
+\item[] M.S., Aerospace Engineering,  January 2010 \\
+Advisor: Chih-Jen Sung \\
+Thesis Topic:  ``\href{http://kyleniemeyer.com/files/Niemeyer_thesis.pdf}{Skeletal Mechanism Generation for Surrogate Fuels}'' \\
+GPA: 4.0\slash 4.0 \\
+%\vspace*{.025in}
+
+\item[] B.S., \emph{summa cum laude}, Aerospace Engineering,  January 2009 \\
+GPA: 4.0\slash 4.0
+\end{list1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Professional Experience}}
+
+\textbf{Oregon State University} \hfill Corvallis, Oregon \\
+School of Mechanical, Industrial, and Manufacturing Engineering \\
+\emph{Assistant Professor} \hfill September 2015-- \\
+\emph{Assistant Professor (Senior Research)} \hfill 2014--2015 \\
+%Efforts include performing research, teaching mechanical engineering courses, pursuing externally funded research programs, and advising students. Research interests focus on computational modeling for multi-physics fluid flows relevant to applications in aerospace, transportation, and energy systems.
+\emph{Postdoctoral Scholar} \hfill 2013--2014
+%Performed research in various areas and taught a mechanical engineering course. Lead researcher on industrially supported project investigating the performance of various fuels in advanced combustion engines, responsible for monthly progress reports and ensuring progress under overall guidance of PI. In addition, performed research into chemical reaction mechanism reduction methods and algorithms for GPU acceleration of computational combustion simulations.
+
+\textbf{Case Western Reserve University} \hfill Cleveland, Ohio \\
+Department of Mechanical and Aerospace Engineering \\
+\emph{Graduate Research Assistant} \hfill 2008--2013 \\
+%Pursued research on methods to reduce the cost of detailed chemistry in combustion modeling, including mechanism reduction approaches and GPU computing. Helped advise a junior graduate student. Lead writer for multiple grant proposals, including NSF and DOE.
+\emph{Teaching Assistant} \hfill 2007--2010 \\
+%Assisted instructors with homework and exam grading, class instruction, and review sessions, and held regular office hours.
+\emph{Undergraduate Research Assistant} \hfill 2007
+%Worked under Prof.\ Christopher Hernandez with a team of undergraduate and graduate students to develop automated algorithms to process and analyze high-resolution image samples.  Also performed individual research studying size effects in cellular solids such as metal foams and trabecular bone.
+
+\textbf{United Technologies Research Center} \hfill East Hartford, Connecticut \\
+\emph{Summer Research Intern}, Combustion Group \hfill 2011
+%Developed new method to accelerate reactive flow simulations for hypersonics using graphics processing units (GPUs). Presented results and future work, as well as deliverables, to upper-level management. Worked with Drs.\ Jeremiah C.\ Lee and Catalin G.\ Fotache in the Combustion Group. This work led to a conference paper.
+
+\textbf{\href{http://arstechnica.com/}{Ars Technica}} \\
+\emph{Associate Science Writer} \hfill 2011--2013
+%Reported on scientific articles covering a range of topics (e.g., energy, climate, technology) to a technically but not necessarily scientifically literate audience, with audiences of in the tens of thousands each month. Articles took complex ideas from scholarly papers and broke the concepts down to be easily understandable. Readers participated in discussions and provided feedback through comments on articles.
+
+\textbf{NASA Glenn Research Center} \hfill Cleveland, Ohio \\
+\emph{Summer Intern}, Combustion Branch \hfill 2008
+%Assessed computational fluid dynamics software for Cryogenic Fluid Management project development and validation under Dr.\ Jeffrey P.\ Moder. Presented results of work to researchers in the combustion group as well as peers.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Funding}}
+
+\textbf{SERDP RC-2651}, ``Ignition, Propagation, and Emissions of Smoldering Combustion: Experimental Analysis and Physics Based-Modeling.'' PIs: David Blunck, \textbf{Kyle Niemeyer}; Bret Butler and Wei Min Hao (US Forest Service). May 2016--April 2021. Total funding: \$2,059,094 (OSU portion: \$1,280,544).
+
+\textbf{NASA 15-TTT1-0057}, ``Swept time-space domain decomposition rule for breaking the latency barrier.'' PIs: Qiqi Wang (MIT), \textbf{Kyle Niemeyer}, and David Gleich (Purdue University). September 2015--August 2018. Total funding: \$696,444 (OSU portion: \$273,454).
+
+\textbf{Energy Industry Sponsor}, ``Advanced Internal Combustion Engine Fuel Modeling and Testing Phase II.'' PIs: Christopher Hagen and \textbf{Kyle Niemeyer}. September 2015--August 2016. Total funding: \$142,178.
+
+\textbf{NSF ACI-1535065}, ``Collaborative Research: SI2-SSE: An intelligent and adaptive parallel CPU\slash GPU co-processing software library for accelerating reactive-flow simulations.'' PIs: \textbf{Kyle Niemeyer} and Chih-Jen Sung (University of Connecticut). September 2015--August 2018. Total funding: \$492,644 (OSU portion: \$278,287).
+
+\textbf{DOE\slash NETL DE-FE0025822}, ``Pulse detonation engine for advanced oxy-combustion of coal-based fuels.'' PIs: David Blunck, Sourabh Apte, and \textbf{Kyle Niemeyer}. September 2015--March 2017. Total funding: \$874,750.
+
+\textbf{Oregon BEST}, Commercialization Program ``Arc Position Sensing Technology Commercialization,'' PI: \textbf{Kyle Niemeyer}. June 2015--July 2016. Total funding: \$149,975.
+
+\textbf{NVIDIA} Tesla K40 GPU Hardware Donation. January 2015. Estimated value: \$3000.
+
+\textbf{NSF Center for e-Design}, Lucid Energy\slash Oregon BEST. ``A tool to estimate the electrical energy generated from turbines inserted in fresh water pipes,'' PIs: Christopher Hoyle and \textbf{Kyle Niemeyer}. January 2015--December 2015. Total funding: \$30,000.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Refereed Journal Articles}}
+
+%\begin{etaremune}
+\begin{bibenum*}
+
+\item Daniel S.~Katz, Sou-Cheng T.\ Choi, \textbf{Kyle E.\ Niemeyer}, James Hetherington, Frank L\"{o}ffler, Dan Gunter, Ray Idaszak, Steven R.\ Brandt, Mark A.\ Miller, Sandra Gesing, Nick D.\ Jones, Nic Weber, Suresh Marru, Gabrielle Allen, Birgit Penzenstadler, Colin C.\ Venters, Ethan Davis, Lorraine Hwang, Ilian Todorov, Abani Patra, and Miguel De Val-Borro.
+``Report on the Third Workshop on Sustainable Software for Science: Practice and Experiences (WSSSPE3).''
+2016.
+Under review. {\tt \href{http://arxiv.org/abs/1602.02296}{arXiv:1602.02296} [cs.SE]}
+
+\item \textbf{Kyle E.\ Niemeyer}, Arfon M.\ Smith, and Daniel S.\ Katz.
+2016.
+``The challenge and promise of software citation for credit, identification, discovery, and reuse.''
+Under review. {\tt \href{http://arxiv.org/abs/1601.04734}{arXiv:1601.04734} [cs.CY]}
+
+\item Nicholas J.~Curtis, \textbf{Kyle E.\ Niemeyer}, and Chih-Jen Sung.
+2015.
+``An investigation of GPU-based stiff chemical kinetics integration methods.''
+Under review.
+
+%\item Shane R.~Daly, \textbf{Kyle E.~Niemeyer}, William J.~Cannella, and Christopher L.~Hagen.
+%``Predicting fuel research octane number using Fourier-transform infrared absorption spectra of neat hydrocarbons.''
+%Under review.
+
+\item Fengquan Zhong, Sugang Ma, Xinyu Zhang, Chih-Jen Sung, and \textbf{Kyle E.\ Niemeyer}.
+2015.
+``Development of efficient and accurate skeletal mechanisms for hydrocarbon fuels and kerosene surrogate.''
+\emph{Acta Mechanica Sinica}, 31(5): 732--740.
+\doi{10.1007/s10409-015-0434-5}
+
+\item Kyle B.~Brady, Xin Hui, Chih-Jen Sung, and \textbf{Kyle E.~Niemeyer}. 
+2015.
+``Counterflow ignition of n-butanol at atmospheric and elevated pressures.''
+\emph{Combustion and Flame}, 162(10): 3596--3611.
+\doi{10.1016/j.combustflame.2015.06.017}
+
+\item \textbf{Kyle E.~Niemeyer}, Shane R.~Daly, William J.~Cannella, and Christopher L.~Hagen. 
+2015.
+``Investigation of the LTC fuel performance index for oxygenated reference fuel blends.''
+\emph{Fuel}, 155: 14--24.
+\doi{10.1016/j.fuel.2015.04.010}
+
+\item \textbf{Kyle E.\ Niemeyer}, Shane R.\ Daly, William J.\ Cannella, and Christopher L.\ Hagen.
+2015.
+``A novel fuel performance index for low-temperature combustion engines based on operating envelopes in light-duty driving cycle simulations.''
+\emph{Journal of Engineering for Gas Turbines and Power}, 137(10): 101601.
+\doi{10.1115/1.4029948}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+2015.
+``Reduced chemistry for a gasoline surrogate valid at engine-relevant conditions.''
+\emph{Energy \& Fuels}, 29(2): 1172--1185.
+\doi{10.1021/ef5022126}
+{\tt \href{http://arxiv.org/abs/1410.0401}{arXiv:1410.0401} [physics.chem-ph]}
+
+\item Nicholas J.\ Curtis, \textbf{Kyle E.\ Niemeyer}, and Chih-Jen Sung.
+2015.
+``An automated target species selection method for dynamic adaptive chemistry simulations.''
+\emph{Combustion and Flame}, 162(4): 1358--1374.
+\doi{10.1016/j.combustflame.2014.11.004}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+2014.
+``Mechanism reduction for multicomponent surrogates: a case study using toluene reference fuels.''
+\emph{Combustion and Flame}, 161(11): 2752--2764.
+\doi{10.1016/j.combustflame.2014.05.001} 
+{\tt \href{http://arxiv.org/abs/1405.3745}{arXiv:1405.3745} [physics.chem-ph]}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+2014.
+``Accelerating moderately stiff chemical kinetics in reactive-flow simulations using GPUs.''
+\emph{Journal of Computational Physics}, 256: 854--871. \\ 
+\doi{10.1016/j.jcp.2013.09.025} 
+{\tt \href{http://arxiv.org/abs/1309.2710}{arXiv:1309.2710} [physics.chem-ph]}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+2014.
+``Recent progress and challenges in exploiting graphics processors in computational fluid dynamics.''
+\emph{Journal of Supercomputing}, 67(2): 528--564.
+\doi{10.1007/s11227-013-1015-7} \\
+{\tt \href{http://arxiv.org/abs/1309.3018}{arXiv:1309.3018} [physics.flu-dyn]}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+2011.
+``On the importance of graph search algorithms for DRGEP-based mechanism reduction methods.''
+\emph{Combustion and Flame}, 158(8): 1439--1443.
+\doi{10.1016/j.combustflame.2010.12.010}
+
+\item \textbf{Kyle E.\ Niemeyer}, Chih-Jen Sung, and Mandhapati P.\ Raju.
+2010.
+``Skeletal mechanism generation for surrogate fuels using directed relation graph with error propagation and sensitivity analysis.''
+\emph{Combustion and Flame}, 157(9): 1760--1770. \\
+\doi{10.1016/j.combustflame.2009.12.022}
+
+\item Craig R.\ Slyfield, \textbf{Kyle E.\ Niemeyer}, Evgeniy V.\ Tkachenko, Ryan E.\ Tomlinson, Grant G.\ Steyer, Cameron G.\ \mbox{Patthanacharoenphon}, Galatia J.\ Kazakia, David L.\ Wilson, and Christopher J.\ Hernandez.
+2009.
+``Three-dimensional surface texture visualization of bone tissue through epifluorescence-based serial block face imaging.''
+\emph{Journal of Microscopy}, 236(1): 52--59.
+\doi{10.1111/j.1365-2818.2009.03204.x}
+
+%\end{etaremune}
+\end{bibenum*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Book\\Chapters}}
+
+%\begin{etaremune}
+\begin{bibenum*}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+2014.
+``GPU-Based Parallel Integration of Large Numbers of Independent ODE Systems.''
+In V.\ Kindratenko (Ed.), \emph{Numerical Computations with GPUs}, Springer International Publishing, Switzerland, Ch.\ 8, pp.\ 159--182. \\
+\doi{10.1007/978-3-319-06548-9_8}
+
+%\end{etaremune}
+\end{bibenum*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Refereed Conference Papers}}
+
+%\begin{etaremune}
+\begin{bibenum*}
+
+\item \textbf{Kyle E.\ Niemeyer}, Shane R.\ Daly, William J.\ Cannella, and Christopher L.\ Hagen.
+``A novel fuel performance index for LTC engines based on operating envelopes in light-duty driving cycle simulations.''
+ASME 2014 Internal Combustion Engine Division Fall Technical Conference (ICEF), Columbus, IN, USA.
+19--22 October 2014.
+Paper no.~ICEF2014-5478.
+\doi{10.1115/ICEF2014-5478}
+
+%\end{etaremune}
+\end{bibenum*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Non-refereed Conference Papers\slash Presentations}}
+
+%\begin{etaremune}
+\begin{bibenum*}
+
+\item \textbf{Kyle E.\ Niemeyer}. ``An autoignition performance comparison of chemical kinetics models for \emph{n}-heptane.''
+Spring 2016 Meeting of the Western States Section of the Combustion Institute, Seattle, WA, USA.
+21--22 March 2016.
+Paper 139KI-0028.
+
+\item \textbf{Kyle E.\ Niemeyer}, Nicholas J.\ Curtis, and Chih-Jen Sung. ``Initial investigation of \texttt{pyJac}: an analytical Jacobian generator for chemical kinetics.''
+Fall 2015 Meeting of the Western States Section of the Combustion Institute, Provo, UT, USA.
+5--6 October 2015.
+Paper 134CK-0019.
+
+\item Shyam Menon, Himakar Ganti, \textbf{Kyle Niemeyer}, and Christopher Hagen.
+``Effect of natural gas conditions on combustion characteristics and overall performance of a novel bimodal internal combustion engine.''
+9th U.S.\ National Combustion Meeting, Cincinnati, OH, USA.
+17--20 May 2015.
+Paper 114IC-0407.
+
+\item \textbf{Kyle E.\ Niemeyer}.
+``Using GPUs to accelerate nonstiff and stiff chemical kinetics in combustion simulations.''
+15th International Conference on Numerical Combustion, Avignon, France.
+19--22 April 2015.
+
+\item Christopher P.\ Stone and \textbf{Kyle E.\ Niemeyer}.
+``Faster Kinetics: Accelerate Your Finite-Rate Combustion Simulation with GPUs.''
+GPU Technology Conference 2014, San Jose, CA, USA.
+24--27 March 2014.
+
+\item \textbf{Kyle E.\ Niemeyer}, Christopher L.\ Hagen, and William J. Cannella.
+``A new fuel index for LTC engines based on operating envelopes in light-duty driving cycle simulations: primary reference fuels.''
+2014 Western States Section of the Combustion Institute Spring Meeting, Pasadena, CA, USA.
+24--25 March 2014.
+Paper 14S-20.
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+``Reduced mechanisms for gasoline surrogates valid at engine conditions.''
+10th US National Combustion Meeting, Park City, UT, USA.
+19--22 May 2013.
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+``Accelerating stiff chemical kinetics in combustion simulations using GPUs.''
+14th International Conference on Numerical Combustion, San Antonio, TX, USA.
+8--10 April 2013.
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+``Accelerating reactive-flow simulations using graphics processing units.''
+51st AIAA Aerospace Sciences Meeting, Grapevine, TX, USA.
+7--10 January 2013.
+\href{http://arc.aiaa.org/doi/abs/10.2514/6.2013-371}{doi:10.2514/6.2013-371}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+``Recent Progress and Challenges in Exploiting Graphics Processors for Aeropropulsion Simulations.''
+Fourth International Symposium on Jet Propulsion and Power Engineering, Xi'an, China.
+10--12 September 2012.
+
+\item \textbf{Kyle E.\ Niemeyer}, Chih-Jen Sung, Catalin G.\ Fotache, and Jeremiah C.\ Lee.
+``Turbulence-chemistry closure method using graphics processing units: a preliminary test.''
+7th Fall Technical Meeting of the Eastern States Section of the Combustion Institute, Storrs, CT, USA.
+9--12 March 2011.
+Paper C02.
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+``Mechanism reduction strategies for multicomponent gasoline surrogate fuels.''
+7th National Combustion Meeting, Atlanta, GA, USA.
+20--23 March 2011.
+Paper 1A15.
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung.
+``DRGEP-based mechanism reduction strategies: graph search algorithms and skeletal primary reference fuel mechanisms.''
+49th AIAA Aero\-space Sciences Meeting, Orlando, FL, USA.
+4--7 January 2011.
+AIAA 2011-508. \\
+\doi{10.2514/6.2011-508}
+
+\item Chih-Jen Sung and \textbf{Kyle E.\ Niemeyer}.
+``Skeletal mechanism generation of surrogate jet fuels for aeropropulsion modeling''.
+\emph{AIP Conference Proceedings}, 1233 (2010): 1412--1417. \\
+\doi{10.1063/1.3452113}
+
+%Sung, Chih-Jen and \textbf{Kyle E.\ Niemeyer}. ``Skeletal mechanism generation of surrogate jet fuels for aeropropulsion modeling''. The Second International Symposium on Computational Mechanics in conjunction with the Twelfth International Conference on the Enhancement and Promotion of Computational Methods in Engineering and Science, Hong Kong, China, November 29--December 3, 2009, Paper No. 513.
+
+\item \textbf{Kyle E.\ Niemeyer}, Mandhapati P.\ Raju, and Chih-Jen Sung.
+``Skeletal Mechanism Generation of Surrogate Fuels Using Directed Relation Graph with Error Propagation and Sensitivity Analysis''.
+45th AIAA\slash ASME\slash SAE\slash ASEE Joint Propulsion Conference and Exhibit, Denver, CO, USA.
+2--5 August 2009.
+AIAA 2009-5495.
+\doi{10.2514/6.2009-5495}
+
+\item \textbf{Kyle E.\ Niemeyer}, Mandhapati P.\ Raju, and Chih-Jen Sung.
+``Skeletal Mechanism Generation for Surrogate Fuels Using Directed Relation Graph with Error Propagation and Sensitivity Analysis''.
+6th National Combustion Meeting, Ann Arbor, MI, USA.
+17--20 May 2009.
+Paper 11F1.
+
+\item Craig R.\ Slyfield, Ryan E.\ Tomlinson,  Evgeniy V.\ Tkachenko, \textbf{Kyle E.\ Niemeyer}, Grant J.\ Steyer, David L.\ Wilson, and Christopher J.\ Hernandez.
+``Sub-micron 3D Fluorescent Imaging and Visualization of Remodeling Cavities in Cancellous Bone''.
+ASME Summer Bioengineering Conference, Marco Island, FL, USA.
+25--29 June 2008.
+
+\item Craig R. Slyfield,  Ryan E.\ Tomlinson,  Evgeniy V.\ Tkachenko, \textbf{Kyle E.\ Niemeyer}, Cameron G.\ Patthana\-charoenphon, Grant J.\ Steyer, Galatia J.\ Kazakia, David L.\ Wilson, and Christopher J.\ Hernandez.
+``3D Visualization and Measurement of Resorption Cavities in Cancellous Bone''.
+54th Annual Meeting of the Orthopaedic Research Society, San Francisco, CA, USA.
+2--5 March 2008.
+
+%\end{etaremune}
+\end{bibenum*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Poster Presentations}}
+
+%\begin{etaremune}
+\begin{bibenum*}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung. ``SLACKHA: Software Library for Accelerating Chemical Kinetics on Hybrid Architectures.'' 2016 NSF SI2 PI Workshop, Arlington, VA, USA.16 February 2016.
+
+\item Christopher Minar and \textbf{Kyle E.\ Niemeyer}. ``Development of a GPU-Based Computational Fluid Dynamics Modeling Tool for Design \& Optimization of Wave Energy Converters.'' Oregon State University Engineering Research Expo, Portland, OR, USA. 4 March 2015.
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung. ``Strategies for accelerating combustion simulations with GPUs.'' 35th International Symposium on Combustion, San Francisco, CA, USA. 4--8 August 2014. \doi{10.6084/m9.figshare.1128029}
+
+\item \textbf{Kyle E.\ Niemeyer}, Shane Daly, William Cannella, and Christopher L.\ Hagen. ``A new fuel index for LTC engines based on operating envelopes in light-duty driving cycle simulations.'' 35th International Symposium on Combustion, San Francisco, CA, USA. 4--8 August 2014. \doi{10.6084/m9.figshare.1128030}
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung. ``Mechanism reduction strategies for gasoline surrogate fuels.'' 24th International Colloquium on the Dynamics of Explosions and Reactive Systems, Taipei, Taiwan. 28 July--2 August 2013.
+
+\item \textbf{Kyle E.\ Niemeyer} and Chih-Jen Sung. ``GPU-based explicit integration algorithms for accelerating chemical kinetics in CFD simulations.'' 24th International Colloquium on the Dynamics of Explosions and Reactive Systems, Taipei, Taiwan. 28 July--2 August 2013.
+
+%\end{etaremune}
+\end{bibenum*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Invited Lectures}}
+
+\begin{bibenum*}
+\item ``Making effective use of graphics processing units (GPUs) in computations,'' Oregon State University Research Computing Seminar Series. 7 March 2016.
+
+\item ``Best Research Practices Part 2: Time Management and Effective Communication,'' OSU MIME Design Seminar Series. 16 October 2015.
+
+\item ``Novel computational modeling tools for next-generation combustion,`` Invited seminar, University of Utah. 2 October 2015.
+
+\item ``Graphics processing units (GPUs) as tools for accelerating computational design and optimization,'' OSU MIME Design Seminar Series. 23 January 2015.
+
+\end{bibenum*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{\textsc{Software}}
+%
+%Kyle E.\ Niemeyer. 2016. \texttt{vol-to-mole}. Python utility for  \doi{10.5281/zenodo.44328}
+%
+%Kyle E.\ Niemeyer. 2016. \texttt{irrev-mech}, Zenodo. \doi{10.5281/zenodo.44289}
+%
+%Kyle E.\ Niemeyer. 2016. \texttt{cf\_expm}, Zenodo. \doi{10.5281/zenodo.44291}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Teaching Experience}}
+
+\textbf{Oregon State University} \\
+ME 373, Mechanical Engineering Methods (undergraduate) \\
+Junior-level course covering analytical and numerical methods for solving ordinary and partial differential equations. \\
+---Winter 2015, Winter 2016
+
+MIME 101, Introduction to MIME (undergraduate) \\
+Freshman-level course providing an overview of mechanical, industrial, and manufacturing engineering as well as academic success skills. \\
+---Fall 2015
+
+ME 331, Introductory Fluid Mechanics (undergraduate) \\
+Junior-level course introducing concepts and applications of fluid mechanics and dimensional analysis. \\
+---Fall 2013, Fall 2014
+
+ESE 497, MIME Capstone Design (undergraduate) \\
+Senior-level design capstone course for Energy Systems Engineering (ESE) students, covering real-world product design, project management, and professional communication skills. \\
+---Fall 2014
+
+\textbf{Case Western Reserve University} (as teaching assistant) \\
+EMAE 350, Mechanical Engineering Analysis (undergraduate) \\
+Junior-level course on mathematical methods (analytical and numerical) used in mechanical engineering, with a focus on ordinary and partial differential equations. \\
+---Fall 2007, Fall 2009, Fall 2010
+
+EMAE 359, Aero\slash Gas Dynamics (undergraduate) \\
+Junior-level course on incompressible and compressible flow theory and applications. \\
+---Spring 2010
+
+EMAE 376, Aerostructures (undergraduate) \\
+Junior-level course on solid mechanics of thin-walled aerospace structures, including introduction to finite element methods. \\
+---Spring 2008
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Advising Experience}}
+
+\textbf{PhD Students Supervised}
+\begin{itemize}[leftmargin=*]
+\item Himakar Ganti, Mechanical Engineering (in progress)
+\item Aaron Fillo, Mechanical Engineering; co-advised with David Blunck (in progress)
+\end{itemize}
+
+\textbf{MS Students Supervised}
+\begin{itemize}[leftmargin=*]
+\item Christopher Minar, Mechanical Engineering (in progress)
+\item Miguel Soler, Mechanical Engineering (in progress)
+\item Shane Daly, ``Chemometrics-based Approach for Predicting Low Temperature Combustion Engine Fuel Performance,'' Mechanical Engineering; co-advised with Christopher Hagen (Sep.\ 2015)
+\end{itemize}
+
+\textbf{Visiting Students Supervised} \\
+Daiki Ichinokiyama, MS student at University of Tsukuba, Japan (Oct.\ 2015--Feb.\ 2016)
+
+%\textbf{PhD Thesis Committee Member} \\
+
+\textbf{MS Thesis Committee Member}
+\begin{itemize}[leftmargin=*]
+\item Eric Walters, Mechanical Engineering (in progress)
+\item Sean Brown, Mechanical Engineering (in progress)
+\item Eric Zeuthen, Mechanical Engineering (Feb.\ 2016)
+\item Sebastian Okhovat, Mechanical Engineering (Dec.\ 2015)
+\end{itemize}
+
+\textbf{Graduate Council Representative}
+\begin{itemize}[leftmargin=*]
+\item Matt O'Banion, PhD Civil Engineering (in progress)
+\item Kendall Bailey, MS Computer Science (Dec.\ 2015)
+\item Ben McCamish, MS Electrical Engineering (June 2015)
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Professional Service}}
+
+\textbf{Journal Editorial Positions} \\
+Associate Editor, \href{http://openresearchsoftware.metajnl.com}{\emph{Journal of Open Research Software}}, Feb.\ 2016-- \\
+Subject Editor, \href{http://riojournal.com}{\emph{RIO Journal}}
+
+\textbf{Conference Session Chair} \\
+Western States Section of the Combustion Institute Fall Meeting, Oct.\ 2015
+
+\textbf{Invited Workshops \& Panels} \\
+3rd Workshop on Sustainable Software for Science: Practice and Experiences (WSSSPE3), Boulder, CO. 28--30 September 2015.
+
+\textbf{Journal Reviewer} \\
+\emph{Proceedings of the Combustion Institute}\\
+\emph{Combustion and Flame}\\
+\emph{Journal of Computational Physics}\\
+\emph{Energy \& Fuels}\\
+\emph{Fuel}\\
+\emph{Combustion Science \& Technology}\\
+\emph{Energy Conversion and Management}\\
+\emph{International Journal of Energetic Materials and Chemical Propulsion}\\
+\emph{SAE International Journal of Aerospace}
+
+\textbf{Conference Reviewer} \\
+SAE World Congress\\
+ASME Internal Combustion Engine Fall Meeting\\
+SAE 2014 International Powertrain, Fuels \& Lubricants Meeting \\
+ASME 2015 International Design Engineering Technical Conferences \\
+ASME 2016 35th International Conference on Ocean, Offshore and Arctic Engineering
+
+\textbf{Proposal\slash Award Referee} \\
+Air Force Summer Faculty Fellowship Program 2015, 2016 \\
+National Defense Science and Engineering Graduate (NDSEG) Fellowship 2015
+
+\textbf{Professional Affiliations} \\
+Member, The Future of Research Communications and e-Scholarship (FORCE11) \\
+Member, The Combustion Institute \\
+Professional Member, American Institute of Aeronautics and Astronautics (AIAA) \\
+Member, American Society for Engineering Education (ASEE) \\
+Member, American Society of Mechanical Engineers (ASME)
+
+\textbf{University Service}
+\begin{itemize}[leftmargin=*]
+\item ``Discovering the Scientist Within'' outreach event for middle-school girls; 8 March 2015, 5 March 2016
+\item ``Explore Engineering Careers'' speaker for Energy Systems Engineering, 14 January 2015
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Awards \& \\Honors}}
+NSF Graduate Research Fellow, 2010--2013 \\
+National Defense Science and Engineering Graduate Fellow, 2009--2012 \\
+NSF Graduate Research Fellowship Program Honorable Mention, 2009 \\
+The Case Alumni Association Prize for Achievement, 2009 \\
+M.\ Roger Clapp Memorial Scholarship, Case Alumni Association, 2009 \\
+Robert and Leona Garwin Award, Mechanical and Aerospace Engineering, 2008 \\
+Outstanding Junior in Engineering Award, Case Western Reserve University, 2008 \\
+Case Alumni Association Scholarship, 2007--2008 \\
+Outstanding Sophomore in Engineering Award, Case Western Reserve University, 2007 \\
+Presidential Scholar, Case Western Reserve University, 2005--2008 \\
+Scholar-Athlete, Case Western Reserve University, 2005 \\
+Tau Beta Pi (Ohio Alpha Chapter)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{\textsc{Computer \\ Skills}}
+%
+%Languages:  MATLAB, FORTRAN 77\slash Fortran 90, C, CUDA, Python \\
+%Versional Control Systems: Subversion, Git, Mercurial \\
+%Applications: \LaTeX, common Windows\slash Mac database, spreadsheet, and presentation software \\
+%CFD Software: FLUENT, FLOW-3D, CHEMKIN \\
+%Operating Systems:  Unix\slash Linux, Windows, Mac OS X
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\textsc{Submitted Funding Proposals}}
+
+\begin{itemize}[leftmargin=*]
+
+\item David Hendrix (PI), Xiaoli Fern, \textbf{Kyle Niemeyer}, Liang Huang, Paul Cheong, Debashis Mondal. ``GPU Cluster for Big Data Analysis and High Performance Computing,'' Oregon State Research Equipment Reserve Fund. Total funding: \$140,000 (matching funds: \$40,000).
+
+\item Bryony DuPont (PI), Sarah Henkel, and \textbf{Kyle Niemeyer}. ``CyberSEES: Type 1: A Detailed Modeling Framework for Optimizing Offshore Wind Energy Systems,'' \textbf{NSF}, Cyber-Innovation for Sustainability Science and Engineering (CyberSEES). Total funding: \$399,213.
+
+\item \textbf{Kyle Niemeyer (PI)} and Chih-Jen Sung (University of Connecticut). ``Collaborative Research: Enabling accurate turbulence-chemistry interaction modeling with GPU acceleration and dynamic mechanism reduction,'' \textbf{NSF}, CBET Combustion and Fire Systems. Total funding: \$368,454 (OSU portion: \$218,453).
+
+\item Christopher Hagen (PI), \textbf{Kyle Niemeyer}, and Marc Rubin. ``Imaging smartphone-based leak detection network,'' \textbf{ARPA-E}, Methane Observation Networks with Innovative Technology to Obtain Reductions (MONITOR). Total funding: \$934,311.
+
+\item \textbf{Kyle Niemeyer (PI)}. ``Marine and Hydrokinetic (MHK) Demonstrations at the Navy's Wave Energy Test Site (WETS)'', \textbf{Oscilla Power, Inc.} (As subcontractor on DOE proposal). Total funding: \$99,998.
+
+\item \textbf{Kyle Niemeyer (PI)} and Chih-Jen Sung (University of Connecticut). ``Collaborative Research: An intelligent and adaptive parallel CPU\slash GPU co-processing software library for accelerating combustion simulations,'' \textbf{NSF}, ACI Software Infrastructure for Sustained Innovation (SI2). Total funding: \$487,518 (OSU portion: \$274,878).
+
+\item \textbf{Kyle Niemeyer (PI)}. ``Accelerating Combustion Modeling with Many-Core Parallel Co-Pro\-cessing'', \textbf{Computational Science and Engineering LLC} (As subcontractor on DOE SBIR proposal). Total funding: \$26,682.
+
+\end{itemize}
+
+\end{resume}
+
+\end{document}
+
