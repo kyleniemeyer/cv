@@ -12,4 +12,6 @@ before_install:
      texlive-latex-extra
      texlive-latex-recommended
      texlive-xetex
-- wget https://tug.org/fonts/getnonfreefonts/install-getnonfreefonts | sudo texlua install-getnonfreefonts | sudo getnonfreefonts-sys garamond
+- wget https://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+- sudo texlua install-getnonfreefonts
+- sudo getnonfreefonts-sys garamond
