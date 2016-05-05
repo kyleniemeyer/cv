@@ -6,12 +6,10 @@ before_install:
 - yes "" | sudo apt-add-repository ppa:texlive-backports/ppa
 - sudo apt-get update -y
 - sudo apt-get install -y
-     inkscape
      texlive-fonts-recommended
      texlive-fonts-extra
      texlive-latex-extra
      texlive-latex-recommended
-     texlive-xetex
 - wget https://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
 - sudo texlua install-getnonfreefonts
 - sudo getnonfreefonts-sys garamond
