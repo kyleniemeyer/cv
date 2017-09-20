@@ -1,16 +1,16 @@
-language: ruby
-rvm:
-- 1.9.3
-script: /bin/bash gh-publisher-scripts/gh-publisher.sh
-before_install:
-- yes "" | sudo apt-add-repository ppa:texlive-backports/ppa
-- sudo apt-get update -y
-- sudo apt-get install -y
-     texlive-fonts-recommended
-     texlive-fonts-extra
-     texlive-latex-extra
-     texlive-latex-recommended
-- wget https://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
-- sudo texlua install-getnonfreefonts
-- sudo getnonfreefonts-sys garamond
-- sudo getnonfreefonts-sys garamondx
+#language: ruby
+#rvm:
+#- 1.9.3
+#script: /bin/bash gh-publisher-scripts/gh-publisher.sh
+#before_install:
+#- yes "" | sudo apt-add-repository ppa:texlive-backports/ppa
+#- sudo apt-get update -y
+#- sudo apt-get install -y
+#     texlive-fonts-recommended
+#     texlive-fonts-extra
+#     texlive-latex-extra
+#     texlive-latex-recommended
+#- wget https://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+#- sudo texlua install-getnonfreefonts
+#- sudo getnonfreefonts-sys garamond
+#- sudo getnonfreefonts-sys garamondx
